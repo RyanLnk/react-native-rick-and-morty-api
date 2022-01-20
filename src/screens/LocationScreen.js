@@ -20,7 +20,7 @@ const LocationScreen = ({ route }) => {
 
   return (
     <SafeAreaView>
-      {/* Nome da localização */}
+      {/* Nome */}
       <Text style={tw`text-2xl text-gray-200 text-center font-bold`}>
         {location.name}
       </Text>

@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-  ActivityIndicator,
-  FlatList,
-  StyleSheet,
-  Text,
-  Image,
-} from 'react-native';
+import { ActivityIndicator, FlatList, StyleSheet, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import api from '../services/api';
 import tw from 'twrnc';
@@ -14,7 +8,7 @@ import EpisodeItem from '../components/EpisodeItem';
 const CharacterScreen = ({ route }) => {
   const { character } = route.params;
 
-  const [episodes, setEpisodes] = useState([]);
+  const [episode, setEpisode] = useState([]);
 
   useEffect(() => {
     async function loadEpisodes() {
@@ -23,7 +17,7 @@ const CharacterScreen = ({ route }) => {
       for (const url of character.episode) {
         const response = await api.get(url);
         arrayEpisodes.push(response.data);
-        setEpisodes(arrayEpisodes);
+        setEpisode(arrayEpisodes);
       }
     }
 
@@ -49,9 +43,9 @@ const CharacterScreen = ({ route }) => {
 
       {/* Episódios */}
       <Text style={tw`mt-4 text-base text-gray-200 font-bold`}>Episodes: </Text>
-      {episodes.length === 0 && <ActivityIndicator size={25} color="#9CA3AF" />}
+      {episode.length === 0 && <ActivityIndicator size={25} color="#9CA3AF" />}
       <FlatList
-        data={episodes}
+        data={episode}
         renderItem={({ item }) => <EpisodeItem episode={item} />}
         showsVerticalScrollIndicator={false}
       />

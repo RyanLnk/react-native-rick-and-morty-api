@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import BlankPageLoading from '../components/BlankPageLoading';
-import api from '../services/api';
 import tw from 'twrnc';
+import api from '../services/api';
+import BlankPageLoading from '../components/BlankPageLoading';
 import CharacterItem from '../components/CharacterItem';
 
 const CharacterListScreen = () => {

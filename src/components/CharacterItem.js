@@ -1,16 +1,28 @@
 import { useNavigation } from '@react-navigation/native';
-import { React } from 'react';
+import { React, useEffect, useState } from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import tw from 'twrnc';
+import api from '../services/api';
 
 const CharacterItem = ({ character }) => {
   const navigation = useNavigation();
+
+  const [episode, setEpisode] = useState([]);
+
+  useEffect(() => {
+    async function loadEpisode() {
+      const response = await api.get(character.episode[0]);
+      setEpisode(response.data);
+    }
+
+    loadEpisode();
+  }, []);
 
   return (
     <View style={tw`m-4 bg-gray-800 rounded-xl`}>
       {/* Imagem do personagem */}
       <Image
-        style={tw`w-full h-70 rounded-t-lg`}
+        style={tw`w-full h-70 rounded-t-xl`}
         source={{ uri: character.image }}
       />
 
@@ -52,10 +64,10 @@ const CharacterItem = ({ character }) => {
           <Text style={tw`text-base text-gray-500 font-bold`}>
             Frist seen in:
           </Text>
-          <TouchableOpacity>
-            <Text style={tw`text-lg text-gray-300`}>
-              Episódio onde apareceu a primeira vez
-            </Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('EpisodeScreen', { episode })}
+          >
+            <Text style={tw`text-lg text-gray-300`}>{episode.name}</Text>
           </TouchableOpacity>
         </View>
       </View>
