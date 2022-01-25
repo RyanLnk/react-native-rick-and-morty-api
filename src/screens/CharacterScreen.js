@@ -43,7 +43,9 @@ const CharacterScreen = ({ route }) => {
 
       {/* Episódios */}
       <Text style={tw`mt-4 text-base text-gray-200 font-bold`}>Episodes: </Text>
+
       {episode.length === 0 && <ActivityIndicator size={25} color="#9CA3AF" />}
+
       <FlatList
         data={episode}
         renderItem={({ item }) => <EpisodeItem episode={item} />}
