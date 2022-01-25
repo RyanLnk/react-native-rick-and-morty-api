@@ -17,8 +17,8 @@ const EpisodeScreen = ({ route }) => {
       for (const url of episode.characters) {
         const response = await api.get(url);
         arrayCharacters.push(response.data);
-        setCharacter(arrayCharacters);
       }
+      setCharacter(arrayCharacters);
     }
 
     loadCharacter();
@@ -27,6 +27,9 @@ const EpisodeScreen = ({ route }) => {
   return (
     <SafeAreaView style={tw`flex-1`}>
       <Text style={tw`text-2xl text-gray-200 text-center font-bold mb-2`}>
+        {episode.name}
+      </Text>
+      <Text style={tw`text-xl text-gray-200 text-center font-bold mb-2`}>
         Characters
       </Text>
 

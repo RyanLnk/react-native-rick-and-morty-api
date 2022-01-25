@@ -50,13 +50,10 @@ const CharacterItem = ({ character }) => {
           <Text style={tw`text-base text-gray-500 font-bold`}>
             Last known location:
           </Text>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('LocationScreen', { character })}
-          >
-            <Text style={tw`text-lg text-gray-300`}>
-              {character.location.name}
-            </Text>
-          </TouchableOpacity>
+
+          <Text style={tw`text-lg text-gray-300`}>
+            {character.location.name}
+          </Text>
         </View>
 
         {/* Primeira localização */}

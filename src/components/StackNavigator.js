@@ -4,7 +4,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import tw from 'twrnc';
 import CharacterListScreen from '../screens/CharacterListScreen';
 import CharacterScreen from '../screens/CharacterScreen';
-import LocationScreen from '../screens/LocationScreen';
 import EpisodeScreen from '../screens/EpisodeScreen';
 
 const StackNavigator = () => {
@@ -19,7 +18,6 @@ const StackNavigator = () => {
         component={CharacterListScreen}
       />
       <Stack.Screen name="CharacterScreen" component={CharacterScreen} />
-      <Stack.Screen name="LocationScreen" component={LocationScreen} />
       <Stack.Screen name="EpisodeScreen" component={EpisodeScreen} />
     </Stack.Navigator>
   );
