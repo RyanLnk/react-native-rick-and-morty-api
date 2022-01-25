@@ -5,6 +5,7 @@ import tw from 'twrnc';
 import api from '../services/api';
 import BlankPageLoading from '../components/BlankPageLoading';
 import CharacterItem from '../components/CharacterItem';
+import Header from '../components/Header';
 
 const CharacterListScreen = () => {
   const [character, setCharacter] = useState([]);
@@ -24,6 +25,7 @@ const CharacterListScreen = () => {
 
   return (
     <SafeAreaView style={tw`flex-1`}>
+      <Header />
       <FlatList
         data={character}
         renderItem={({ item }) => <CharacterItem character={item} />}
